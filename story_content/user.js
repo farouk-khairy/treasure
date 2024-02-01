@@ -2,42 +2,50 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5aGKZ85EA7Q":
+      case "6SHwpyAbVhR":
         Script1();
         break;
-      case "5dPbYALoBpD":
+      case "69qTOQlKyWp":
         Script2();
         break;
-      case "69kH4tWhzvq":
+      case "6CVdxJK7D3K":
         Script3();
         break;
-      case "5mcxjlvWWNZ":
+      case "6qvXbUw8Wgq":
         Script4();
         break;
   }
 }
 
-function Script1()
+window.InitExecuteScripts = function()
+{
+var player = GetPlayer();
+var object = player.object;
+var addToTimeline = player.addToTimeline;
+var setVar = player.SetVar;
+var getVar = player.GetVar;
+window.Script1 = function()
 {
   var protractor = GetPlayer().GetVar("protractor");
 GetPlayer().SetVar("protractor",!protractor);
 }
 
-function Script2()
+window.Script2 = function()
 {
   var ruler = GetPlayer().GetVar("ruler");
 GetPlayer().SetVar("ruler",!ruler);
 }
 
-function Script3()
+window.Script3 = function()
 {
   var compass = GetPlayer().GetVar("compass");
 GetPlayer().SetVar("compass",!compass);
 }
 
-function Script4()
+window.Script4 = function()
 {
-  var checker = GetPlayer().GetVar("endMusic");
-GetPlayer().SetVar("endMusic",!checker);
+  let playerMusic = GetPlayer().GetVar("endMusic");
+GetPlayer().SetVar("endMusic",!playerMusic)
 }
 
+};
