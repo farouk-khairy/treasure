@@ -1,51 +1,34 @@
-function ExecuteScript(strId)
-{
-  switch (strId)
-  {
-      case "6SHwpyAbVhR":
-        Script1();
-        break;
-      case "69qTOQlKyWp":
-        Script2();
-        break;
-      case "6CVdxJK7D3K":
-        Script3();
-        break;
-      case "6qvXbUw8Wgq":
-        Script4();
-        break;
-  }
-}
-
-window.InitExecuteScripts = function()
+window.InitUserScripts = function()
 {
 var player = GetPlayer();
 var object = player.object;
+var once = player.once;
 var addToTimeline = player.addToTimeline;
 var setVar = player.SetVar;
 var getVar = player.GetVar;
-window.Script1 = function()
-{
-  var protractor = GetPlayer().GetVar("protractor");
-GetPlayer().SetVar("protractor",!protractor);
-}
-
-window.Script2 = function()
-{
-  var ruler = GetPlayer().GetVar("ruler");
-GetPlayer().SetVar("ruler",!ruler);
-}
-
-window.Script3 = function()
-{
-  var compass = GetPlayer().GetVar("compass");
-GetPlayer().SetVar("compass",!compass);
-}
-
+var update = player.update;
+var pointerX = player.pointerX;
+var pointerY = player.pointerY;
+var showPointer = player.showPointer;
+var hidePointer = player.hidePointer;
+var slideWidth = player.slideWidth;
+var slideHeight = player.slideHeight;
 window.Script4 = function()
 {
-  let playerMusic = GetPlayer().GetVar("endMusic");
-GetPlayer().SetVar("endMusic",!playerMusic)
+  const ruler1 = object('6rPWiTogfRT');
+ruler1.rotation = getVar('degrees');
+
+
+}
+
+window.Script5 = function()
+{
+  hidePointer();
+const pointer = object('6hrt5FA1q3j');
+update(() => {
+  pointer.x = pointerX() - pointer.width / 2;
+  pointer.y = pointerY() - pointer.height / 2;
+});
 }
 
 };
